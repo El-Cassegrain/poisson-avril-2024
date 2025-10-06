@@ -7,6 +7,10 @@
 
 body {
   background-color: #2E3D4B;
+  background-image: url('./../img/plombier.jpg');
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: 300 700;
   font-family: "Comic Neue", cursive;
 }
 
