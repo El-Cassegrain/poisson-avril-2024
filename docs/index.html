@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+
+<!--
+
+|\    \ \ \ \ \ \ \      __   
+|  \    \ \ \ \ \ \ \   | O~-_
+|   >----|-|-|-|-|-|-|--|  __/
+|  /    / / / / / / /   |__\  
+|/     / / / / / / /
+
+Poisson d'Avril ! -->
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="robots" content="noindex, nofollow">
+    
+    <title>Nouvo sith</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2E3D4B;
+  background-image: url('./dist/img/plombier.jpg');
+  background-attachment: fixed;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: 300px 700px;
+  font-family: "Comic Neue", cursive;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+.container .img-wrapper {
+  animation: opac 3s infinite alternate-reverse;
+  width: 100vw;
+}
+.container .img-wrapper img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.content-wrapper {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+p#title {
+  color: white;
+  margin-top: 55px;
+  font-size: 25px;
+  position: relative;
+  display: block;
+  max-width: 360px;
+}
+p#title a#fake-link {
+  text-decoration: underline;
+  color: #4E6072;
+  position: absolute;
+  right: 0;
+  transition: transform ease-in 0.85s 0.012s;
+}
+p#title a#fake-link:hover, p#title a#fake-link:focus {
+  transform: translateX(-100%);
+}
+p#title span#exclamation {
+  color: orangered;
+  text-decoration: underline;
+}
+
+p#main-text {
+  color: #EFAEA5;
+  position: relative;
+  transform: rotate(-4deg);
+  font-size: clamp(24px, 7vw, 48px);
+  display: inline-flex;
+  max-width: 100%;
+  padding: 12px;
+}
+
+footer {
+  margin-top: 55px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+#contact-btn, #menu-btn {
+  background: none;
+  border: none;
+  font-family: "Comic Neue", cursive;
+  color: white;
+  text-decoration: underline;
+  font-size: 3rem;
+  position: relative;
+  display: inline-flex;
+  transform: rotate(12deg);
+  cursor: zoom-in;
+  transition: letter-spacing 0.45s 0.012s ease-in-out;
+}
+#contact-btn:hover, #contact-btn:focus, #menu-btn:hover, #menu-btn:focus {
+  letter-spacing: 4px;
+  animation: colored 0.92s 1 forwards;
+}
+
+#menu-btn {
+  transform: rotate(0);
+  cursor: grab;
+}
+#menu-btn:active {
+  cursor: grabbing;
+}
+
+#code-modale {
+  width: 80vw;
+  height: 80vh;
+  background-color: green;
+  margin: 0 auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+}
+#code-modale #close-btn {
+  color: white;
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  font-size: 2rem;
+  cursor: zoom-in;
+}
+#code-modale.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 1s 0.012s ease, opacity 2s 0.012s ease;
+}
+
+@keyframes opac {
+  to {
+    opacity: 0.25;
+  }
+}
+@keyframes colored {
+  0% {
+    color: orange;
+  }
+  20% {
+    color: blue;
+  }
+  50% {
+    color: green;
+  }
+  90% {
+    color: black;
+  }
+  100% {
+    color: white;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .container .img-wrapper {
+    width: 300px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="img-wrapper">
+            <img src="/dist/img/logo-poisson.jpg" alt="Logo">
+        </div>
+        <div class="content-wrapper">
+            <p id="title">CRéation de sith wéb <a href="#!" id="fake-link">professionnels</a><span id="exclamation">!!!</span></p>
+            <p id="main-text">
+                Fête mwa confiensse pour réalisé VOTRE image en ligne est ainsi attiré plus de cliants !!!!
+            </p>
+        </div>
+    </div>
+    <footer>
+        <button id="menu-btn" type="button">Menu</button>
+        <div id="contact-button-container">
+            <button id="contact-btn">
+                Contact
+            </button>
+        </div>
+    </footer>
+
+    <div id="code-modale">
+        <div id="close-btn">X</div>
+    </div>
+
+    <script>
+        const fakeLink = document.querySelector("a#fake-link")
+const contactBtn = document.querySelector("#contact-btn")
+const codeDiv = document.querySelector("#code-modale")
+const closeModaleBtn = document.querySelector("#close-btn")
+const moveBtn = document.querySelector("#menu-btn")
+
+let clickCounter = 0
+
+fakeLink.addEventListener("click", () => {
+    alert("PRO-FESS-YO-NEL")
+})
+
+contactBtn.addEventListener("click", () => {
+    var sourceCode = document.documentElement.outerHTML;
+    var codeElement = document.createElement('pre');
+    codeElement.textContent = sourceCode;
+    codeDiv.classList.add("visible");
+    codeDiv.appendChild(codeElement);
+})
+
+closeModaleBtn.addEventListener("click", () => {
+    if (clickCounter % 2 === 0) {
+        closeModaleBtn.style.transform = "translate(-50%, 50%)";
+      } else {
+        codeDiv.classList.remove("visible");
+        closeModaleBtn.style.transform = "translate(-50%, -50%)";
+      }
+    
+      clickCounter++;
+})
+
+let isGrabbed = false;
+
+moveBtn.addEventListener("mousedown", (event) => {
+  isGrabbed = true;
+  moveBtn.style.position = "absolute";
+  moveBtn.style.left = event.clientX - moveBtn.offsetWidth / 2 + "px";
+  moveBtn.style.top = event.clientY - moveBtn.offsetHeight / 2 + "px";
+});
+
+document.addEventListener("mousemove", (event) => {
+  if (isGrabbed) {
+    moveBtn.style.left = event.clientX - moveBtn.offsetWidth / 2 + "px";
+    moveBtn.style.top = event.clientY - moveBtn.offsetHeight / 2 + "px";
+  }
+});
+
+document.addEventListener("mouseup", () => {
+  isGrabbed = false;
+});
+
+
+    </script>
+</body>
+</html>
